@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>AI作文評分系統</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="manifest" href="manifest.json">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>AI 作文評分系統</h1>
+
+<div class="controls">
+
+<select id="mode">
+<option value="teacher">教師模式</option>
+<option value="student">學生模式</option>
+</select>
+
+<select id="language">
+<option value="zh">中文</option>
+<option value="en">English</option>
+</select>
+
+<select id="grade">
+<option>國小</option>
+<option>國中</option>
+<option>高中</option>
+</select>
+
+</div>
+
+</header>
+
+
+<section class="info">
+
+<input id="studentName" placeholder="學生姓名">
+
+<input id="essayTitle" placeholder="作文題目">
+
+<input type="file" id="imageUpload">
+
+</section>
+
+
+<section class="score">
+
+<div class="score-left">
+
+<div id="scoreItems"></div>
+
+<button id="addItem">新增評分項目</button>
+
+<button id="aiScore">AI評分</button>
+
+</div>
+
+<div class="score-right">
+
+<canvas id="radarChart"></canvas>
+
+</div>
+
+</section>
+
+
+<section class="analysis">
+
+<h2>AI 評語</h2>
+
+<p id="comment"></p>
+
+<h2>修改建議</h2>
+
+<p id="suggestion"></p>
+
+</section>
+
+
+<section class="charts">
+
+<canvas id="trendChart"></canvas>
+
+</section>
+
+
+<section class="export teacher-only">
+
+<button id="exportPDF">匯出PDF</button>
+
+<button id="exportExcel">匯出Excel</button>
+
+<button id="exportTrend">匯出折線圖PDF</button>
+
+</section>
+
+
+<script src="firebase.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
